@@ -7,7 +7,11 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc -b",
     "start": "node dist/src/index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:migrate": "drizzle-kit migrate",
+    "db:generate": "drizzle-kit generate"
   },
   "private": true,
   "type": "module",

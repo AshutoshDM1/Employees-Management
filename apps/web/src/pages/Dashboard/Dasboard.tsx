@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { authClient } from '@/lib/auth-client';
 import { useNavigate, Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
-import { useSocket } from '@/hooks/useSocket';
 import { useUsersQuery } from '@/hooks/useUsers';
 import { LogOut, User, Loader2, Loader } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -20,34 +19,6 @@ export default function Dasboard() {
 
   // Fetch users using custom react-query hook
   const { data: users = [], isLoading: loadingUsers } = useUsersQuery();
-
-  // Share centrally initialized socket instance
-  const socket = useSocket();
-
-  // Track online users status over the shared socket client
-  useEffect(() => {
-    if (!socket) return;
-
-    socket.on('initial_online_users', (userIds: string[]) => {
-      setOnlineUsers(userIds);
-    });
-
-    socket.on('user_status', ({ userId, online }: { userId: string; online: boolean }) => {
-      setOnlineUsers((prev) => {
-        if (online) {
-          if (prev.includes(userId)) return prev;
-          return [...prev, userId];
-        } else {
-          return prev.filter((id) => id !== userId);
-        }
-      });
-    });
-
-    return () => {
-      socket.off('initial_online_users');
-      socket.off('user_status');
-    };
-  }, [socket]);
 
   const handleSignOut = async () => {
     try {
