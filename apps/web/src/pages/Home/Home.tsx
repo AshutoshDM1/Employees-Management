@@ -17,9 +17,9 @@ export default function Home() {
     );
   }
 
-  // Redirect to /chat if authenticated
+  // Redirect to /dashboard if authenticated
   if (session) {
-    return <Navigate to="/chat" replace />;
+    return <Navigate to="/dashboard" replace />;
   }
 
   // Render Auth component if not authenticated

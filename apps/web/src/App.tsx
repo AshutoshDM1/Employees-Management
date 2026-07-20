@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Home from './pages/Home/Home';
 import Dasboard from './pages/Dashboard/Dasboard';
+import DashboardOverview from './pages/Dashboard/DashboardOverview';
 import Profile from './pages/Profile/Profile';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
@@ -24,8 +25,8 @@ function App() {
 
           {/* Protected Portal Routes */}
           <Route element={<ProtectedRoute />}>
-            {/* Dasboard layout wraps /chat and /profile */}
-            <Route element={<Dasboard />}>
+            <Route path="dashboard" element={<Dasboard />}>
+              <Route index element={<DashboardOverview />} />
               <Route path="profile" element={<Profile />} />
             </Route>
           </Route>

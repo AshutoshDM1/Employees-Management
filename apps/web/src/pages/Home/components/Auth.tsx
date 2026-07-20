@@ -13,7 +13,7 @@ export default function Auth() {
       setErrorMsg(null);
       await authClient.signIn.social({
         provider: 'google',
-        callbackURL: `${window.location.origin}/chat`,
+        callbackURL: `${window.location.origin}/dashboard`,
       });
     } catch (err: any) {
       console.error('Sign in failed:', err);
@@ -37,9 +37,9 @@ export default function Auth() {
 
           {/* Top Brand Logo */}
           <div className="absolute top-8 left-8 md:top-12 md:left-12 flex items-center space-x-3">
-            <img src="/favicon.svg" alt="Vedaz Logo" className="size-6 object-contain " />
+            <img src="/favicon.svg" alt="EMS Logo" className="size-6 object-contain " />
             <span className="text-base font-semibold tracking-wider bg-linear-to-b from-white to-zinc-400 bg-clip-text text-transparent">
-              VEDAZ Chat
+              VEDAZ EMS
             </span>
           </div>
 
@@ -47,7 +47,7 @@ export default function Auth() {
           <div className="space-y-8 max-w-sm w-full flex flex-col items-center text-center relative z-10">
             <div className="space-y-2 flex flex-col items-start w-full text-left">
               <h2 className="text-3xl font-bold tracking-tight bg-linear-to-b from-white to-zinc-300 bg-clip-text text-transparent">
-                Sign in to Vedaz Chat
+                Sign in to Employee Portal
               </h2>
               <p className="text-[10px] text-zinc-500 font-mono tracking-widest uppercase mt-1">
                 Connect with:
