@@ -8,6 +8,7 @@
     "build": "tsc -b",
     "start": "node dist/src/index.js",
     "lint": "eslint .",
+    "db:seed": "tsx src/db/seed.ts",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:migrate": "drizzle-kit migrate",
@@ -18,8 +19,10 @@
   "devDependencies": {
     "@config/eslint": "workspace:*",
     "@config/typescript": "workspace:*",
+    "@types/bcryptjs": "^3.0.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.12.3",
     "drizzle-kit": "1.0.0-rc.4",
     "tsx": "^4.22.4",
@@ -28,11 +31,13 @@
   "dependencies": {
     "@better-auth/drizzle-adapter": "^1.6.23",
     "@neondatabase/serverless": "^1.1.0",
+    "bcryptjs": "^3.0.3",
     "better-auth": "^1.6.23",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "drizzle-orm": "1.0.0-rc.4",
     "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
     "socket.io": "^4.8.3",
     "zod": "^4.4.3"
   }

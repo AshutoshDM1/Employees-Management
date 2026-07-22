@@ -33,6 +33,7 @@ app.all('/api/auth/*splat', toNodeHandler(auth));
 
 // Register API routes
 app.use('/api/v1', router);
+app.use('/api', router);
 
 // Root API health and welcome route
 app.get('/', (req, res) => {
